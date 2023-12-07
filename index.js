@@ -6,6 +6,12 @@ const inquirer = require("inquirer");
 
 const fs = require("fs");
 
+// Function will generate an SVG file using the collected user input from the inquirer prompts. 
+// This will be done via the fs library
+
+function generateFile(fileName, userInput) {
+}
+
 // inquirer's native '.prompt' function used to collect the user's input in the command line and save those answers
 
 function collectUserInput() {
@@ -37,6 +43,13 @@ function collectUserInput() {
           message:
             "Choose a background color for your shape in either a hexadecimal number notation or simple colour keyword format (see: 'pink', or '#ff0000' for examples)",
           name: "backgroundShapecolour",
-        },
+        }, 
       ])
-    }
+      .then((userInput) => {
+          // Calling write file function to generate SVG file - function not yet fully defined
+          generateFile("logo.svg", userInput);
+      });
+  }
+
+//   Function is called to begin process of user prompts / code block when the application is ran on the command line with 'node index.js'
+promptUser();
